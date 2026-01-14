@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  agent-platform:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount Docker socket for agent code execution
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount workspaces for persistence
+      - ./workspaces:/app/workspaces
+    env_file:
+      - .env
+    environment:
+      - WORKSPACE_ROOT=/app/workspaces
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    restart: unless-stopped
+    networks:
+      - agent-network
+
+networks:
+  agent-network:
+    driver: bridge
