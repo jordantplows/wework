@@ -1,0 +1,21 @@
+# Core dependencies
+fastapi==0.109.0
+uvicorn==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# LLM integration
+litellm==1.17.9
+anthropic==0.25.0
+openai==1.12.0
+
+# Async support
+aiofiles==23.2.1
+httpx==0.26.0
+
+# Docker for code execution
+docker==7.0.0
+
+# Utilities
+python-dotenv==1.0.0
+loguru==0.7.2
